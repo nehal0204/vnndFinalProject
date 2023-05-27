@@ -1,0 +1,438 @@
+<!--
+Mobile web development
+Template for general purpose html5 page with JQuery
+ Mobile
+Created by: Nehal Dogra & Vatsal Nariya
+email: ndogra7004@conestogac.on.ca & vnariya7007@conestogac.on.ca
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="witdh=device-witdh, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <!--jquery-->
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <!--jquery mobile-->
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <!--jquery validate-->
+    <script src="js/lib/jquery.validate.js"></script>
+    <!--  css  bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--jquery mobile styles-->
+    <link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+    <!-- our Stuff --->
+    <script src="js/vnnddatabase.js"></script>
+    <script src="js/vnndDAL.js"></script>
+    <script src="js/vnndutil.js"></script>
+    <script src="js/vnndfacade.js"></script>
+    <script src="js/vnndcamera.js"></script>
+    <script src="js/vnndglobal.js"></script>
+    <!--    css for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/mystylesheet.css">
+    <script type="text/javascript" src="cordova.js"></script>
+
+</head>
+<body>
+<!--home page-->
+<div data-role="page" id="pageHome" data-theme="b">
+    <header data-role="header" data-position="fixed">
+        <h1><span>Retro</span> <span style="color: tomato">Music</span></h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#pageHome" data-icon="home" data-transition="fade"
+                       class="ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#pageAdd" data-icon="plus" data-transition="fade">Add</a></li>
+                <li><a href="#pageView" data-icon="bullets" data-transition="fade">Playlist</a></li>
+                <li><a href="#pageSettings" data-icon="gear" data-transition="fade">Settings</a></li>
+                <li><a href="#pageAbout" data-icon="user" data-transition="fade">About</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h3 style="color: white" id="headingHome">
+            <img src="img/MUSIC-ICON.png" id="logo1" class="d-inline-block" alt="#">
+            Welcome, User</h3>
+        <br/>
+        <p>Retro Music helps you add songs to your playlist. You can filter the songs by their name or artists. This app
+            is awesome and you will fall in love with it &sung; &hearts;</p>
+        <div class="card">
+            <img class="card-img-top" src="img/guitar.jpg" alt="Card image music">
+            <div class="card-body">
+                <h5 class="card-title">Retro <span style="color: tomato">Music</span></h5>
+                <p class="card-text"> Add your account and register with us to receive emails about new songs. </p>
+                <a href="#pageSettings" class="ui-btn-active ui-btn ui-btn-inline ui-shadow ui-corner-all">Go to
+                    Settings</a>
+            </div>
+        </div>
+        <br/>
+        <h5 align="center">Popular Songs</h5>
+        <ul data-role="listview" data-inset="true">
+            <li><a href="https://www.youtube.com/watch?v=ApXoWvfEYVU">
+                <img src="img/sunflower.jpg" alt="sunflower">
+                <h2>Sunflower</h2>
+                <p>By: Post Malone</p></a>
+            </li>
+            <li><a href="https://www.youtube.com/watch?v=0go2nfVXFgA">
+                <img src="img/sty.jpg" alt="somebody to you">
+                <h2>Somebody To You</h2>
+                <p>By: The Vamps</p></a>
+            </li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                <img src="img/nggyu.jpg" alt="never gonna give you up">
+                <h2>Never Gonna Give You Up</h2>
+                <p>By: Rick Astley</p></a>
+            </li>
+        </ul>
+        <p>To add a song to your personal playlist, go to <a href="#pageAdd">Add</a></p>
+    </section>
+    <div class="footer-basic">
+        <footer data-role="footer" data-position="fixed">
+            <div class="social">
+                <a href="#"><i class="icon ion-social-instagram"></i></a>
+                <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                <a href="#"><i class="icon ion-social-twitter"></i></a>
+                <a href="#"><i class="icon ion-social-facebook"></i></a>
+                <p class="copyright">&copy 2022 Vatsal & Nehal</p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!--add page-->
+<div data-role="page" id="pageAdd" data-theme="b">
+    <header data-role="header" data-position="fixed">
+        <h1><span>Retro</span> <span style="color: tomato">Music</span></h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#pageHome" data-icon="home">Home</a></li>
+                <li><a href="#pageAdd" data-icon="plus" class="ui-btn-active ui-state-persist">Add</a></li>
+                <li><a href="#pageView" data-icon="bullets">Playlist</a></li>
+                <li><a href="#pageSettings" data-icon="gear">Settings</a></li>
+                <li><a href="#pageAbout" data-icon="user">About</a></li>
+            </ul>
+
+        </div>
+    </header>
+    <section data-role="content">
+        <h4 style="color: white" align="center">
+            <img src="img/MUSIC-ICON.png" id="logo1" class="d-inline-block" alt="#">
+            Add a Song to Playlist</h4>
+
+        <form id="frmAddPlaylist" name="frmAddPlaylist">
+            <label for="SongAdd">Song Name: </label>
+            <input type="text" id="SongAdd" name="SongAdd">
+
+            <label for="ArtistAdd">Artist Name: </label>
+            <input type="text" id="ArtistAdd" name="ArtistAdd">
+
+            <label for="genreAdd">Song Genre:</label>
+            <select name="genreAdd" id="genreAdd">
+            </select>
+
+            <label for="dateAdd">Release Date:</label>
+            <input type="date" id="dateAdd" name="dateAdd">
+
+            <label>Add to favourite:</label>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <label for="yesAdd">Yes</label>
+                <input type="radio" id="yesAdd" name="favouriteAdd" checked>
+
+                <label for="noAdd">No</label>
+                <input type="radio" id="noAdd" name="favouriteAdd">
+            </fieldset>
+
+            <label for="ratingsAdd">Ratings:</label>
+            <input type="range" id="ratingsAdd" name="ratingsAdd" min="0" max="10" value="1">
+
+            <button type="button" id="btnAddPlayist" name="btnAddPlayist" class="ui-btn-active">Add to playlist</button>
+        </form>
+    </section>
+    <div class="footer-basic">
+        <footer data-role="footer" data-position="fixed">
+            <div class="social">
+                <a href="#"><i class="icon ion-social-instagram"></i></a>
+                <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                <a href="#"><i class="icon ion-social-twitter"></i></a>
+                <a href="#"><i class="icon ion-social-facebook"></i></a>
+                <p class="copyright">&copy 2022 Vatsal & Nehal</p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!--view playlist page-->
+<div data-role="page" id="pageView" data-theme="b">
+    <header data-role="header" data-position="fixed">
+        <h1><span>Retro</span> <span style="color: tomato">Music</span></h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#pageHome" data-icon="home">Home</a></li>
+                <li><a href="#pageAdd" data-icon="plus">Add</a></li>
+                <li><a href="#pageView" data-icon="bullets" class="ui-btn-active ui-state-persist">Playlist</a></li>
+                <li><a href="#pageSettings" data-icon="gear">Settings</a></li>
+                <li><a href="#pageAbout" data-icon="user">About</a></li>
+            </ul>
+
+        </div>
+    </header>
+    <section data-role="content">
+        <h4 style="color: white" align="center">
+            <img src="img/MUSIC-ICON.png" id="logo1" class="d-inline-block" alt="#">
+            Your Playlist</h4>
+        <ul data-role="listview" id="listviewPlaylist" class="ui-listview-inset">
+            <li>
+                <a href="#pageModify" class="ui-btn">
+                    <h2>Perfect</h2>
+                    <p>
+                        Ed Sheran <br>
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href="#pageModify" class="ui-btn">
+                    <h2>Love story</h2>
+                    <p>
+                        Taylor swift<br>
+                    </p>
+                </a>
+            </li>
+        </ul>
+        <a href="#pageFavourite" data-role="button" class="btn btn-primary" data-inline="true">Show Favourites</a>
+    </section>
+    <div class="footer-basic">
+        <footer data-role="footer" data-position="fixed">
+            <div class="social">
+                <a href="#"><i class="icon ion-social-instagram"></i></a>
+                <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                <a href="#"><i class="icon ion-social-twitter"></i></a>
+                <a href="#"><i class="icon ion-social-facebook"></i></a>
+                <p class="copyright">&copy 2022 Vatsal & Nehal</p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!--favourite page-->
+<div data-role="page" id="pageFavourite" data-theme="b">
+    <header data-role="header" data-position="fixed">
+        <h1><span>Retro</span> <span style="color: tomato">Music</span></h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#pageHome" data-icon="home">Home</a></li>
+                <li><a href="#pageAdd" data-icon="plus">Add</a></li>
+                <li><a href="#pageView" data-icon="bullets" class="ui-btn-active ui-state-persist">Favourites</a></li>
+                <li><a href="#pageSettings" data-icon="gear">Settings</a></li>
+                <li><a href="#pageAbout" data-icon="user">About</a></li>
+            </ul>
+
+        </div>
+    </header>
+    <section data-role="content">
+        <h4 style="color: white" align="center">
+            <img src="img/MUSIC-ICON.png" id="logo1" class="d-inline-block" alt="#">
+            Your Favourites</h4>
+        <ul data-role="listview" id="listviewFavourite" class="ui-listview-inset">
+            <li>
+            </li>
+        </ul>
+        <a href="#" data-role="button" class="btn btn-primary" data-rel="back" data-icon="back" data-inline="true">Return
+            to Playlist</a>
+    </section>
+    <div class="footer-basic">
+        <footer data-role="footer" data-position="fixed">
+            <div class="social">
+                <a href="#"><i class="icon ion-social-instagram"></i></a>
+                <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                <a href="#"><i class="icon ion-social-twitter"></i></a>
+                <a href="#"><i class="icon ion-social-facebook"></i></a>
+                <p class="copyright">&copy 2022 Vatsal & Nehal</p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!--modify playlist-->
+<div data-role="page" id="pageModify" data-theme="b">
+    <header data-role="header" data-position="fixed">
+        <h1><span>Retro</span> <span style="color: tomato">Music</span></h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#pageHome" data-icon="home">Home</a></li>
+                <li><a href="#pageAdd" data-icon="plus">Add</a></li>
+                <li><a href="#pageView" data-icon="bullets" class="ui-btn-active ui-state-persist">Modify</a></li>
+                <li><a href="#pageSettings" data-icon="gear">Settings</a></li>
+                <li><a href="#pageAbout" data-icon="user">About</a></li>
+            </ul>
+
+        </div>
+    </header>
+    <section data-role="content">
+        <h4 style="color: white" align="center">
+            <img src="img/MUSIC-ICON.png" id="logo1" class="d-inline-block" alt="#">
+            Modify a Song</h4>
+        <form id="frmModifyPlaylist" name="frmModifyPlaylist">
+            <div hidden>
+                <label for="txtId">ID</label>
+                <input type="text" id="txtId" name="txtId" data-clear-btn="true">
+            </div>
+
+            <label for="SongModify">Song Name: </label>
+            <input type="text" id="SongModify" name="SongModify">
+
+            <label for="ArtistModify">Artist Name: </label>
+            <input type="text" id="ArtistModify" name="ArtistModify">
+
+            <label for="genreModify">Song Genre:</label>
+            <select name="genreModify" id="genreModify">
+            </select>
+
+            <label for="dateModify">Release Date:</label>
+            <input type="date" id="dateModify" name="dateModify">
+
+            <label>Add to favourite:</label>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <label for="yesModify">Yes</label>
+                <input type="radio" id="yesModify" name="favouriteModify" checked>
+
+                <label for="noModify">No</label>
+                <input type="radio" id="noModify" name="favouriteModify">
+            </fieldset>
+
+            <label for="ratingsModify">Ratings:</label>
+            <input type="range" id="ratingsModify" name="ratingsModify" min="0" max="10" value="1">
+
+            <div data-type="horizontal">
+                <button type="button" id="cancelmodify" name="cancelmodify" data-inline="true" data-rel="back">Cancel
+                </button>
+                <button type="button" id="deletePlaylist" name="deletePlaylist" data-inline="true">Delete
+                </button>
+                <button type="button" id="updatePlaylist" name="updatePlaylist" data-inline="true"
+                        class="ui-btn-active">
+                    Update Song
+                </button>
+            </div>
+        </form>
+    </section>
+    <div class="footer-basic">
+        <footer data-role="footer" data-position="fixed">
+            <div class="social">
+                <a href="#"><i class="icon ion-social-instagram"></i></a>
+                <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                <a href="#"><i class="icon ion-social-twitter"></i></a>
+                <a href="#"><i class="icon ion-social-facebook"></i></a>
+                <p class="copyright">&copy 2022 Vatsal & Nehal</p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!--settings page-->
+<div data-role="page" id="pageSettings" data-theme="b">
+    <header data-role="header" data-position="fixed">
+        <h1><span>Retro</span> <span style="color: tomato">Music</span></h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#pageHome" data-icon="home">Home</a></li>
+                <li><a href="#pageAdd" data-icon="plus">Add</a></li>
+                <li><a href="#pageView" data-icon="bullets">Playlist</a></li>
+                <li><a href="#pageSettings" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+                <li><a href="#pageAbout" data-icon="user">About</a></li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h4 style="color: white" align="center">
+            <img src="img/MUSIC-ICON.png" id="logo1" class="d-inline-block" alt="#">
+            Account Settings</h4>
+        <form id="settings" name="settings">
+            <label for="fName">Name:</label>
+            <input type="text" id="fName" name="fNAme" data-clear-btn="true" placeholder="Your name here">
+            <label for="defaultEmail">Email:</label>
+            <input type="email" id="defaultEmail" name="defaultEmail" data-clear-btn="true" placeholder="Your email here">
+            <button type="button" data-role="button" id="btnDefault" name="btnDefault" class="ui-btn-active">Register
+            </button>
+            <button type="button" data-role="button" id="butn" name="butn" style="background-color: red">Clear
+                Data
+            </button>
+        </form>
+        <button type="button" id="Capture" name="Capture" data-icon="plus"
+                data-iconpos="left"
+                data-theme="a" data-inline="false" class="ui-btn-active">Capture Thumbnail
+        </button>
+        <button type="button" id="Load" name="Load" data-icon="plus"
+                data-iconpos="left"
+                data-theme="a" data-inline="false">Load from Library
+        </button>
+
+        <label id="Message"></label>
+        <img id="Snap" name="Snap" src="" width="100%" height="100%" alt="Photo appears here">
+
+    </section>
+    <div class="footer-basic">
+        <footer data-role="footer" data-position="fixed">
+            <div class="social">
+                <a href="#"><i class="icon ion-social-instagram"></i></a>
+                <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                <a href="#"><i class="icon ion-social-twitter"></i></a>
+                <a href="#"><i class="icon ion-social-facebook"></i></a>
+                <p class="copyright">&copy 2022 Vatsal & Nehal</p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!--about page-->
+<div data-role="page" id="pageAbout" data-theme="b">
+    <header data-role="header" data-position="fixed">
+        <h1><span>Retro</span> <span style="color: tomato">Music</span></h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#pageHome" data-icon="home">Home</a></li>
+                <li><a href="#pageAdd" data-icon="plus">Add</a></li>
+                <li><a href="#pageView" data-icon="bullets">Playlist</a></li>
+                <li><a href="#pageSettings" data-icon="gear">Settings</a></li>
+                <li><a href="#pageAbout" data-icon="user" class="ui-btn-active ui-state-persist">About</a></li>
+            </ul>
+
+        </div>
+    </header>
+    <section data-role="content">
+        <h4 style="color: white" align="center">
+            <img src="img/MUSIC-ICON.png" id="logo1" class="d-inline-block" alt="#">
+            About Us</h4>
+        <h5>Info:</h5>
+        <ul data-role="listview" id="listviewInfo" class="ui-listview-inset">
+            <li>
+                <a class="ui-btn">
+                    <h1>Name: <span style="font-weight: lighter;">Nehal Dogra</span></h1>
+                    <h2>Student Id: <span style="font-weight: lighter;">8777004</span></h2>
+                    <h3>Email: <span style="font-weight: lighter;">ndogra7004@conestogac.on.ca</span></h3>
+                    <h4>Course: <span style="font-weight: lighter;">PROG2430-22W-Sec1</span></h4>
+                </a>
+            </li>
+            <li>
+                <a class="ui-btn">
+                    <h1>Name: <span style="font-weight: lighter;">Vatsal Nariya</span></h1>
+                    <h2>Student Id: <span style="font-weight: lighter;">8777007</span></h2>
+                    <h3>Email: <span style="font-weight: lighter;">vnariya8007@conestogac.on.ca</span></h3>
+                    <h4>Course: <span style="font-weight: lighter;">PROG2430-22W-Sec1</span></h4>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <div class="footer-basic">
+        <footer data-role="footer" data-position="fixed" data-theme="b">
+            <div class="social">
+                <a href="#"><i class="icon ion-social-instagram"></i></a>
+                <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                <a href="#"><i class="icon ion-social-twitter"></i></a>
+                <a href="#"><i class="icon ion-social-facebook"></i></a>
+                <p class="copyright">&copy 2022 Vatsal & Nehal</p>
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
